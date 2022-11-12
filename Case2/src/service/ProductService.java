@@ -6,7 +6,7 @@ import model.Product;
 import java.util.*;
 import java.lang.String;
 
-public class ProductService implements InterProductService {
+    public class ProductService implements InterProductService {
     // thiết kế mảng arraylist theo kiểu singleton
     // tạo duy nhất 1 đường dẫn đến file sủ dụng đọc, ghi cho sản phẩm (product)
     public static final String PRODUCT_FILE = "C:\\Users\\Gin\\Desktop\\ProjectM2\\Case2\\data\\products.csv";
@@ -36,17 +36,22 @@ public class ProductService implements InterProductService {
         List<Product> list = findAll();
         for (Product p : list){
             if (p.getNameProduct().toLowerCase().equals(productName.toLowerCase())){
-                System.out.println(p.getNameProduct());//in ra thông tin product
+                //in ra thông tin product
+                System.out.printf("Sản phầm muốn tìm: \nID:  %f █ Ten san pham:  %s █ Gia san pham:  %f █ So luong:  %d █ Sản xuất tại:  %s █ Ngay tao:  %s █ Ngay cap nhat:  %s\n",
+                        p.getId(),p.getNameProduct(),p.getPrices(), p.getQuantitys(),p.getMadeIn(),p.getCreateAt(),p.getUpdateAt());
             }
         }
     }
 
     @Override
     public void findByProductID(long productID) {
-        List<Product> list = findAll();
+        List<Product> list = findAll();//đọc từ file gán lên mảng kiểu String, rồi trả về mảng kiểu product bằng methor parseProduct
         for (Product p : list){
             if (p.getId() == productID){
-                System.out.println(p.getId()); // in ra thông tin sản phẩm
+                // in ra thông tin sản phẩm
+//                        this.id, this.nameProduct,this.prices,this.quantitys,this.madeIn,stringCreatAt,stringUpdateAt);
+                System.out.printf("Sản phầm muốn tìm: \nID:  %f █ Ten san pham:  %s █ Gia san pham:  %f █ So luong:  %d █ Sản xuất tại:  %s █ Ngay tao:  %s █ Ngay cap nhat:  %s\n",
+                        p.getId(),p.getNameProduct(),p.getPrices(), p.getQuantitys(),p.getMadeIn(),p.getCreateAt(),p.getUpdateAt());
             }
         }
     }
@@ -65,7 +70,8 @@ public class ProductService implements InterProductService {
     @Override
     public void addProduct(Product product) {
         List<Product> listProduct = findAll();
-        //CSVUtil.writes(PRODUCT_FILE, listProduct.add(product));
+
+//        CSVUtil.writes(PRODUCT_FILE, );
     }
 
     @Override
